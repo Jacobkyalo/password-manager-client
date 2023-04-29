@@ -5,7 +5,7 @@ const index = () => {
   return (
     <footer className="mb-20 w-full text-black">
       <hr className="mx-auto mb-10 block border-2" />
-      <div className="flex flex-col items-start justify-center gap-y-10">
+      <div className="flex flex-col items-start justify-center gap-y-10 md:flex-row md:justify-between">
         <div className="flex flex-col gap-y-6">
           <img src={logo} alt={logo} className="block w-full max-w-[200px] text-start" />
           <div className="ps-2">
@@ -26,7 +26,9 @@ const index = () => {
           </p>
         </div>
       </div>
-      <p className="mt-6 ps-2 text-start text-[17px] opacity-80">&copy; Password Manager. All rights reserved</p>
+      <p className="mt-6 ps-2 text-start text-[17px] opacity-80 md:mt-12">
+        &copy; Password Manager. All rights reserved
+      </p>
     </footer>
   );
 };
