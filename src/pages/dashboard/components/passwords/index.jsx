@@ -16,7 +16,7 @@ const index = () => {
     <section className="mb-12">
       <div className="flex flex-col gap-y-10">
         <h2 className="text-[25px] font-semibold">Your Passwords</h2>
-        <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col gap-x-4 gap-y-6 md:flex-row">
           <div className="w-full rounded-xl bg-violet-100 p-6">
             <p className="mb-4 text-[20px] font-medium">Twitter password</p>
             <div className="mb-6 flex items-center justify-between rounded-md border border-black p-4">
