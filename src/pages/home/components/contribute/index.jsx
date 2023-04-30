@@ -13,9 +13,11 @@ const index = () => {
             <p className="my-2 mb-8 opacity-80 md:w-[400px]">
               Password manager is an open source project. Feel free to contribute by raising an issue or opening a PR :)
             </p>
-            <button className="rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-lg text-white transition-all duration-1000 hover:bg-violet-600">
-              Contribute Now
-            </button>
+            <a href="https://github.com/Jacobkyalo/password-manager-client" target="_blank" rel="noreferrer">
+              <button className="rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-lg text-white transition-all duration-1000 hover:bg-violet-600">
+                Contribute Now
+              </button>
+            </a>
           </div>
           <div className="w-full max-w-[350px] md:max-w-[400px]">
             <img src={contributeImg} alt="contribute-image" />
