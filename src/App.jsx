@@ -8,7 +8,7 @@ import NewPassword from './pages/add-password';
 
 function App() {
   return (
-    <div className="px-[10px]">
+    <div className="mx-auto w-[1200px] max-w-full px-[6px] no-underline">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
