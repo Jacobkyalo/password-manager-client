@@ -37,6 +37,12 @@ const index = () => {
           className="mt-8 w-full rounded-[8px] bg-violet-700 px-[40px] py-[10px] text-lg text-white transition-all duration-1000 hover:bg-violet-600">
           Login
         </button>
+        <p className="mt-4 text-[14px] opacity-80 md:text-[17px]">
+          Don't have an account?{' '}
+          <Link to="/signup" className="text-violet-700">
+            Sign up
+          </Link>
+        </p>
       </form>
     </section>
   );
