@@ -1,12 +1,22 @@
+import { Link } from 'react-router-dom';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 const index = () => {
   return (
     <section className="mt-20 flex h-[80vh] flex-col items-center justify-start">
       <form className="w-full max-w-[400px] rounded-lg px-4 py-6 shadow-[0_50px_200px_50px_#6d28d9] md:px-6">
-        <div className="mb-8">
-          <h2 className="text-3xl font-semibold leading-none">New Password</h2>
-          <p className="text-[14px] opacity-80">Add a new a password here.</p>
+        <div className="mb-8 flex justify-between">
+          <div>
+            <h2 className="text-3xl font-semibold leading-none">New Password</h2>
+            <p className="text-[14px] opacity-80">Add a new a password here.</p>
+          </div>
+          <Link to="/dashboard">
+            <button
+              type="button"
+              className="text-md rounded-[8px] bg-violet-700 px-[10px] py-[5px] text-white transition-all duration-1000 hover:bg-violet-600">
+              Cancel
+            </button>
+          </Link>
         </div>
         <label htmlFor="account-name" className="block">
           <span className="mb-2 block text-[17px] font-medium">Account name</span>
