@@ -40,7 +40,7 @@ const index = () => {
         <p className="mt-4 text-[14px] opacity-80 md:text-[17px]">
           Don't have an account?{' '}
           <Link to="/signup" className="text-violet-700">
-            Sign up
+            Create an account
           </Link>
         </p>
       </form>
