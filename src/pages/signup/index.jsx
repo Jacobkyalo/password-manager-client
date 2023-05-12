@@ -4,14 +4,14 @@ import logo from '../../assets/brand/logo.svg';
 
 const index = () => {
   return (
-    <section className="mt-10 flex h-[80vh] flex-col items-center justify-start gap-8 bg-transparent">
+    <section className="mt-6 flex h-[80vh] flex-col items-center justify-start gap-4 bg-transparent">
       <Link to="/">
         <img src={logo} alt="logo" className="w-full max-w-[300px]" />
       </Link>
-      <form className="w-full max-w-[400px] rounded-lg bg-white px-4 py-6 shadow-[0_50px_200px_50px_#6d28d9] md:px-6">
-        <div className="mb-5">
+      <form className="block w-full max-w-[400px] rounded-lg bg-white px-4 py-6 shadow-[0_50px_200px_50px_#6d28d9] md:px-6">
+        <div className="mb-4">
           <h2 className="text-3xl font-semibold leading-none md:text-4xl">Create Account</h2>
-          <p className="text-[14px] opacity-80 md:text-[16px]">Sign up below for a free account</p>
+          <p className="text-[14px] opacity-80 md:text-[16px]">Sign up for a free account</p>
         </div>
         <label htmlFor="username" className="block">
           <span className="mb-2 block text-[17px] font-medium">Username</span>
