@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 const index = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [show, setShow] = useState();
+
+  const handlePasswordShow = () => {
+    setShow((prev) => !prev);
+  };
   return (
     <section className="mt-20 flex h-[80vh] flex-col items-center justify-start">
       <form className="w-full max-w-[400px] rounded-lg px-4 py-6 shadow-[0_50px_200px_50px_#6d28d9] md:px-6">
@@ -32,12 +39,15 @@ const index = () => {
           <span className="mb-2 block text-[17px] font-medium">Account password</span>
           <div className="mb-12 flex items-center justify-between rounded-md border border-black p-3">
             <input
-              type="password"
+              type={show ? 'text' : 'password'}
               className="w-full border-none bg-transparent outline-none"
               placeholder="Account password"
             />
-            <EyeIcon className="h-[20px] w-[20px]" />
-            {/* <EyeSlashIcon className="h-[20px] w-[20px]" /> */}
+            {show ? (
+              <EyeSlashIcon className="h-[20px] w-[20px] cursor-pointer" onClick={handlePasswordShow} />
+            ) : (
+              <EyeIcon className="h-[20px] w-[20px] cursor-pointer" onClick={handlePasswordShow} />
+            )}
           </div>
         </label>
         <button

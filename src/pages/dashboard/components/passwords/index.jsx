@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 const index = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [showPassword, setShowPassword] = useState(false);
 
   const show = () => {
@@ -28,9 +29,9 @@ const index = () => {
                 />
               </label>
               {showPassword ? (
-                <EyeSlashIcon className="h-[20px] w-[20px]" onClick={show} />
+                <EyeSlashIcon className="h-[20px] w-[20px] cursor-pointer" onClick={show} />
               ) : (
-                <EyeIcon className="h-[20px] w-[20px]" onClick={hide} />
+                <EyeIcon className="h-[20px] w-[20px] cursor-pointer" onClick={hide} />
               )}
             </div>
             <div className="flex items-center justify-between gap-x-4">

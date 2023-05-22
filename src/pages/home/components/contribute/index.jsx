@@ -7,7 +7,7 @@ const index = () => {
         <div className="mb-8">
           <h2 className="text-3xl font-bold md:text-5xl">Want to Contribute?</h2>
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-y-12 text-center md:flex-row md:gap-x-14">
+        <div className="flex w-full flex-col items-center justify-between gap-y-12 text-center md:flex-row md:gap-x-14">
           <div className="md:text-start">
             <h3 className="text-2xl font-semibold md:text-3xl">Start Contributing</h3>
             <p className="my-2 mb-8 opacity-80 md:w-[400px]">

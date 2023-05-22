@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import logo from '../../assets/brand/logo.svg';
 
 const index = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [show, setShow] = useState(false);
+
+  const handlePasswordShow = () => {
+    setShow((prev) => !prev);
+  };
+
   return (
     <section className="mt-10 flex h-[80vh] flex-col items-center justify-start gap-8">
       <Link to="/">
@@ -23,12 +31,15 @@ const index = () => {
           <span className="mb-2 block text-[17px] font-medium">Password</span>
           <div className="mb-3 flex items-center justify-between rounded-md border border-black p-3">
             <input
-              type="password"
+              type={show ? 'text' : 'password'}
               className="w-full border-none bg-transparent outline-none"
               placeholder="Enter password"
             />
-            <EyeIcon className="h-[20px] w-[20px]" />
-            {/* <EyeSlashIcon className="h-[20px] w-[20px]" /> */}
+            {show ? (
+              <EyeSlashIcon className="h-[20px] w-[20px] cursor-pointer" onClick={handlePasswordShow} />
+            ) : (
+              <EyeIcon className="h-[20px] w-[20px] cursor-pointer" onClick={handlePasswordShow} />
+            )}
           </div>
         </label>
         <Link to="/forgot-password">
@@ -40,7 +51,7 @@ const index = () => {
           Login
         </button>
         <p className="mt-4 text-[14px] opacity-80 md:text-[17px]">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link to="/signup" className="text-violet-700">
             Create an account
           </Link>
