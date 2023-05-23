@@ -1,11 +1,49 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { useLoginUserMutation } from '../../slices/usersApiSlice';
+import { setUser } from '../../slices/userSlice';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import logo from '../../assets/brand/logo.svg';
 
 const index = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [show, setShow] = useState(false);
+  const [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: ''
+  });
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [loginUser] = useLoginUserMutation();
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [navigate, user]);
+
+  const handleStateChange = (e) => {
+    e.preventDefault();
+    setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleLoginUser = async (e) => {
+    e.preventDefault();
+    try {
+      const email = loginInfo.email;
+      const password = loginInfo.password;
+      const response = await loginUser({ email, password }).unwrap();
+      dispatch(setUser({ ...response }));
+      navigate('/dashboard');
+    } catch (error) {
+      toast.error(error?.data?.message || error.error);
+    }
+  };
 
   const handlePasswordShow = () => {
     setShow((prev) => !prev);
@@ -16,7 +54,9 @@ const index = () => {
       <Link to="/">
         <img src={logo} alt="logo" className="w-full max-w-[300px]" />
       </Link>
-      <form className="w-full max-w-[400px] rounded-lg bg-white px-4 py-6 shadow-[0_50px_200px_50px_#6d28d9] md:px-6">
+      <form
+        onSubmit={handleLoginUser}
+        className="w-full max-w-[400px] rounded-lg bg-white px-4 py-6 shadow-[0_50px_200px_50px_#6d28d9] md:px-6">
         <div className="mb-6">
           <h2 className="text-3xl font-semibold leading-none md:text-4xl">Hi, Welcome</h2>
           <p className="text-[14px] opacity-80 md:text-[16px]">Login to access your account</p>
@@ -24,7 +64,14 @@ const index = () => {
         <label htmlFor="email" className="block">
           <span className="mb-2 block text-[17px] font-medium">Email</span>
           <div className="mb-4 rounded-md border border-black p-3">
-            <input type="email" className="w-full border-none bg-transparent outline-none" placeholder="Enter email" />
+            <input
+              type="email"
+              name="email"
+              value={loginInfo.email}
+              onChange={handleStateChange}
+              className="w-full border-none bg-transparent outline-none"
+              placeholder="Enter email"
+            />
           </div>
         </label>
         <label htmlFor="password" className="block">
@@ -32,6 +79,9 @@ const index = () => {
           <div className="mb-3 flex items-center justify-between rounded-md border border-black p-3">
             <input
               type={show ? 'text' : 'password'}
+              name="password"
+              value={loginInfo.password}
+              onChange={handleStateChange}
               className="w-full border-none bg-transparent outline-none"
               placeholder="Enter password"
             />
