@@ -1,98 +1,16 @@
-import { useState } from 'react';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { BsTrash } from 'react-icons/bs';
 
 const index = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [showPassword, setShowPassword] = useState(false);
-
-  const show = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const hide = () => {
-    setShowPassword(!showPassword);
-  };
-
   return (
     <section className="mb-12">
-      <div className="flex flex-col gap-y-10">
-        <h2 className="text-[25px] font-semibold">Your Passwords</h2>
-        <div className="flex flex-col gap-x-4 gap-y-6 md:flex-row">
-          <div className="w-full rounded-xl bg-violet-100 p-6">
-            <p className="mb-4 text-[20px] font-medium">Twitter password</p>
-            <div className="mb-6 flex items-center justify-between rounded-md border border-black p-4">
-              <label className="block">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  className="border-none bg-transparent outline-none"
-                  value="12345678"
-                />
-              </label>
-              {showPassword ? (
-                <EyeSlashIcon className="h-[20px] w-[20px] cursor-pointer" onClick={show} />
-              ) : (
-                <EyeIcon className="h-[20px] w-[20px] cursor-pointer" onClick={hide} />
-              )}
-            </div>
-            <div className="flex items-center justify-between gap-x-4">
-              <button className="text-md w-[50%] rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-white transition-all duration-1000 hover:bg-violet-600">
-                Copy
-              </button>
-              <button className="text-md w-[50%] rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-white transition-all duration-1000 hover:bg-violet-600">
-                Change
-              </button>
-            </div>
-          </div>
-          <div className="w-full rounded-xl bg-violet-100 p-6">
-            <p className="mb-4 text-[20px] font-medium">Linkedin password</p>
-            <div className="mb-6 flex items-center justify-between rounded-md border border-black p-4">
-              <label className="block">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  className="border-none bg-transparent outline-none"
-                  value="12345678"
-                />
-              </label>
-              {showPassword ? (
-                <EyeSlashIcon className="h-[20px] w-[20px]" onClick={show} />
-              ) : (
-                <EyeIcon className="h-[20px] w-[20px]" onClick={hide} />
-              )}
-            </div>
-            <div className="flex items-center justify-between gap-x-4">
-              <button className="text-md w-[50%] rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-white transition-all duration-1000 hover:bg-violet-600">
-                Copy
-              </button>
-              <button className="text-md w-[50%] rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-white transition-all duration-1000 hover:bg-violet-600">
-                Change
-              </button>
-            </div>
-          </div>
-          <div className="w-full rounded-xl bg-violet-100 p-6">
-            <p className="mb-4 text-[20px] font-medium">GitHub password</p>
-            <div className="mb-6 flex items-center justify-between rounded-md border border-black p-4">
-              <label className="block">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  className="border-none bg-transparent outline-none"
-                  value="12345678"
-                />
-              </label>
-              {showPassword ? (
-                <EyeSlashIcon className="h-[20px] w-[20px]" onClick={show} />
-              ) : (
-                <EyeIcon className="h-[20px] w-[20px]" onClick={hide} />
-              )}
-            </div>
-            <div className="flex items-center justify-between gap-x-4">
-              <button className="text-md w-[50%] rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-white transition-all duration-1000 hover:bg-violet-600">
-                Copy
-              </button>
-              <button className="text-md w-[50%] rounded-[8px] bg-violet-700 px-[40px] py-[15px] text-white transition-all duration-1000 hover:bg-violet-600">
-                Change
-              </button>
-            </div>
-          </div>
+      <div className="flex flex-col gap-y-8">
+        <h2 className="text-[25px] font-semibold">Your tasks</h2>
+        <div className="flex items-center gap-x-2">
+          <input type="checkbox" name="" id="" className="p-10" />
+          <p className="text-[15px] text-black opacity-80 sm:text-[19px]">Go to the gym</p>
+          <button type="button" className="ml-4">
+            <BsTrash size={20} className="text-red-600" />
+          </button>
         </div>
       </div>
     </section>

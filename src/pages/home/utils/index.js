@@ -11,13 +11,13 @@ export const howItWorksStrings = [
   },
   {
     title: 'Access account',
-    text: 'Login to your account and start saving passwords.',
+    text: 'Login to your account and start saving tasks.',
     icon: access,
     alt: 'access-account-icon'
   },
   {
     title: 'Manage account',
-    text: 'Manage and perform operations on your passwords.',
+    text: 'Manage and perform operations on your tasks.',
     icon: manage,
     alt: 'manage-account-icon'
   }

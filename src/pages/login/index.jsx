@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { useLoginUserMutation } from '../../slices/usersApiSlice';
-import { setUser } from '../../slices/userSlice';
+import { setUser } from '../../features/auth/authSlice';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import logo from '../../assets/brand/logo.svg';
+import { useLoginUserMutation } from '../../features/auth/authApiSlice';
 
 const index = () => {
   const [show, setShow] = useState(false);
@@ -52,7 +51,7 @@ const index = () => {
   return (
     <section className="mt-10 flex h-[80vh] flex-col items-center justify-start gap-8">
       <Link to="/">
-        <img src={logo} alt="logo" className="w-full max-w-[300px]" />
+        <h1 className="text-xl font-bold text-violet-700 sm:text-2xl lg:text-3xl">Task Manager</h1>
       </Link>
       <form
         onSubmit={handleLoginUser}

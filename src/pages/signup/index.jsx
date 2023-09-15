@@ -2,9 +2,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useRegisterUserMutation } from '../../slices/usersApiSlice';
+import { useRegisterUserMutation } from '../../features/auth/authApiSlice';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import logo from '../../assets/brand/logo.svg';
 
 const index = () => {
   const [show, setShow] = useState(false);
@@ -41,7 +40,7 @@ const index = () => {
   return (
     <section className="mt-6 flex h-[80vh] flex-col items-center justify-center gap-4 bg-transparent lg:justify-start">
       <Link to="/">
-        <img src={logo} alt="logo" className="w-full max-w-[300px]" />
+        <h1 className="text-xl font-bold text-violet-700 sm:text-2xl lg:text-3xl">Task Manager</h1>
       </Link>
       <form
         onSubmit={handleRegisterUser}
@@ -56,6 +55,7 @@ const index = () => {
             <input
               type="text"
               name="username"
+              id="username"
               value={signupInfo.username}
               onChange={handleStateChange}
               className="w-full border-none bg-transparent outline-none"
@@ -69,6 +69,7 @@ const index = () => {
             <input
               type="email"
               name="email"
+              id="email"
               value={signupInfo.email}
               onChange={handleStateChange}
               className="w-full border-none bg-transparent outline-none"
@@ -82,6 +83,7 @@ const index = () => {
             <input
               type={show ? 'text' : 'password'}
               name="password"
+              id="password"
               value={signupInfo.password}
               onChange={handleStateChange}
               className="w-full border-none bg-transparent outline-none"

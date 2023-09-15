@@ -1,14 +1,16 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Link } from 'react-router-dom';
-import logo from '../../../../assets/brand/logo.svg';
-import profile from '../../../../assets/svg/profile.svg';
+import { useSelector } from 'react-redux';
 
 const index = () => {
+  const { user } = useSelector((state) => state.user);
+
   return (
     <nav className="flex items-center justify-between py-[20px] md:py-[25px]">
       <Link to="/">
-        <img src={logo} alt="logo" className="block w-full max-w-[160px] md:max-w-[180px]" />
+        <h1 className="text-xl font-bold text-violet-700 sm:text-2xl lg:text-3xl">Task Manager</h1>
       </Link>
-      <img src={profile} alt="profile-photo" className="h-[50px] w-[50px]" />
+      <h5 className="text-xl capitalize text-black">{user?.username},</h5>
     </nav>
   );
 };
